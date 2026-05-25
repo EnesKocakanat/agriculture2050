@@ -1,0 +1,8 @@
+{
+  "test_mae_t_ha": 0.4999,
+  "test_r2": 0.2237,
+  "il_count": 79,
+  "sample_count": 1579,
+  "feature_count": 13,
+  "target": "verim_t_ha (gerçek TÜİK + DSİ verisi)"
+}

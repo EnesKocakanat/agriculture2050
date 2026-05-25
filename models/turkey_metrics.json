@@ -1,0 +1,6 @@
+{
+  "test_mae": 0.1115,
+  "test_r2": 0.989,
+  "il_count": 81,
+  "feature_count": 12
+}

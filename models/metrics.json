@@ -1,0 +1,20 @@
+{
+  "test_mae": 0.3975,
+  "test_r2": -12.1654,
+  "cv_metrics": {
+    "random_forest": {
+      "cv_mae": 0.351,
+      "cv_std": 0.1408
+    },
+    "gradient_boost": {
+      "cv_mae": 0.4106,
+      "cv_std": 0.105
+    },
+    "ridge": {
+      "cv_mae": 0.3586,
+      "cv_std": 0.2039
+    }
+  },
+  "feature_count": 16,
+  "training_samples": 11
+}

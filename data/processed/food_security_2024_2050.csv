@@ -1,0 +1,244 @@
+year,nufus,senaryo,senaryo_label,politika,politika_label,uretim_ton,ihracat_ton,kullanilabilir_ton,ic_talep_ton,denge_ton,kky_pct,acik_var
+2024,85372000,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16400000,2952000,13448000,18354980,-4906980,73.3,True
+2024,85372000,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,16400000,2952000,13448000,18354980,-4906980,73.3,True
+2024,85372000,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16400000,2952000,13448000,18354980,-4906980,73.3,True
+2024,85372000,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16400000,2952000,13448000,18354980,-4906980,73.3,True
+2024,85372000,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,16400000,2952000,13448000,18354980,-4906980,73.3,True
+2024,85372000,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16400000,2952000,13448000,18354980,-4906980,73.3,True
+2024,85372000,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),16400000,2952000,13448000,18354980,-4906980,73.3,True
+2024,85372000,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16400000,2952000,13448000,18354980,-4906980,73.3,True
+2024,85372000,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16400000,2952000,13448000,18354980,-4906980,73.3,True
+2025,85926918,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16449200,2960856,13488344,18511236,-5022892,72.9,True
+2025,85926918,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,16605000,2988900,13616100,18511236,-4895136,73.6,True
+2025,85926918,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16736200,3012516,13723684,18511236,-4787552,74.1,True
+2025,85926918,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16383600,2949048,13434552,18511236,-5076684,72.6,True
+2025,85926918,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,16539400,2977092,13562308,18511236,-4948928,73.3,True
+2025,85926918,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16670600,3000708,13669892,18511236,-4841344,73.8,True
+2025,85926918,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),16252400,2925432,13326968,18511236,-5184268,72.0,True
+2025,85926918,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16408200,2953476,13454724,18511236,-5056512,72.7,True
+2025,85926918,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16539400,2977092,13562308,18511236,-4948928,73.3,True
+2026,86485443,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16498548,2969739,13528809,18668822,-5140013,72.5,True
+2026,86485443,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,16812562,3026261,13786301,18668822,-4882521,73.8,True
+2026,86485443,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17079292,3074273,14005019,18668822,-4663803,75.0,True
+2026,86485443,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16367216,2946099,13421117,18668822,-5247705,71.9,True
+2026,86485443,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,16679985,3002397,13677588,18668822,-4991234,73.3,True
+2026,86485443,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16945665,3050220,13895445,18668822,-4773377,74.4,True
+2026,86485443,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),16106128,2899103,13207025,18668822,-5461797,70.7,True
+2026,86485443,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16416404,2954953,13461451,18668822,-5207371,72.1,True
+2026,86485443,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16679985,3002397,13677588,18668822,-4991234,73.3,True
+2027,87047598,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16548043,2978648,13569395,18827750,-5258355,72.1,True
+2027,87047598,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,17022720,3064090,13958630,18827750,-4869120,74.1,True
+2027,87047598,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17429418,3137295,14292123,18827750,-4535627,75.9,True
+2027,87047598,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16350849,2943153,13407696,18827750,-5420054,71.2,True
+2027,87047598,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,16821765,3027918,13793847,18827750,-5033903,73.3,True
+2027,87047598,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17225268,3100548,14124720,18827750,-4703030,75.0,True
+2027,87047598,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),15961173,2873011,13088162,18827750,-5739588,69.5,True
+2027,87047598,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16424612,2956430,13468182,18827750,-5359568,71.5,True
+2027,87047598,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16821765,3027918,13793847,18827750,-5033903,73.3,True
+2028,87613408,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16597687,2987584,13610103,18988030,-5377927,71.7,True
+2028,87613408,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,17235504,3102391,14133113,18988030,-4854917,74.4,True
+2028,87613408,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17786721,3201610,14585111,18988030,-4402919,76.8,True
+2028,87613408,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16334498,2940210,13394288,18988030,-5593742,70.5,True
+2028,87613408,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,16964750,3053655,13911095,18988030,-5076935,73.3,True
+2028,87613408,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17509485,3151707,14357778,18988030,-4630252,75.6,True
+2028,87613408,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),15817523,2847154,12970369,18988030,-6017661,68.3,True
+2028,87613408,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16432825,2957908,13474917,18988030,-5513113,71.0,True
+2028,87613408,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,16964750,3053655,13911095,18988030,-5076935,73.3,True
+2029,88182895,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16647480,2996546,13650934,19149676,-5498742,71.3,True
+2029,88182895,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,17450947,3141170,14309777,19149676,-4839899,74.7,True
+2029,88182895,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18151348,3267243,14884105,19149676,-4265571,77.7,True
+2029,88182895,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16318164,2937270,13380894,19149676,-5768782,69.9,True
+2029,88182895,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,17108950,3079611,14029339,19149676,-5120337,73.3,True
+2029,88182895,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17798392,3203711,14594681,19149676,-4554995,76.2,True
+2029,88182895,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),15675165,2821530,12853635,19149676,-6296041,67.1,True
+2029,88182895,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16441041,2959387,13481654,19149676,-5668022,70.4,True
+2029,88182895,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17108950,3079611,14029339,19149676,-5120337,73.3,True
+2030,88756084,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16697423,3005536,13691887,19312697,-5620810,70.9,True
+2030,88756084,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,17669084,3180435,14488649,19312697,-4824048,75.0,True
+2030,88756084,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18523451,3334221,15189230,19312697,-4123467,78.6,True
+2030,88756084,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16301846,2934332,13367514,19312697,-5945183,69.2,True
+2030,88756084,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,17254376,3105788,14148588,19312697,-5164109,73.3,True
+2030,88756084,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18092065,3256572,14835493,19312697,-4477204,76.8,True
+2030,88756084,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),15534088,2796136,12737952,19312697,-6574745,66.0,True
+2030,88756084,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16449262,2960867,13488395,19312697,-5824302,69.8,True
+2030,88756084,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17254376,3105788,14148588,19312697,-5164109,73.3,True
+2031,89332998,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16747515,3014553,13732962,19477106,-5744144,70.5,True
+2031,89332998,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,17889948,3220191,14669757,19477106,-4807349,75.3,True
+2031,89332998,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18903182,3402573,15500609,19477106,-3976497,79.6,True
+2031,89332998,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16285544,2931398,13354146,19477106,-6122960,68.6,True
+2031,89332998,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,17401038,3132187,14268851,19477106,-5208255,73.3,True
+2031,89332998,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18390584,3310305,15080279,19477106,-4396827,77.4,True
+2031,89332998,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),15394282,2770971,12623311,19477106,-6853795,64.8,True
+2031,89332998,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16457486,2962347,13495139,19477106,-5981967,69.3,True
+2031,89332998,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17401038,3132187,14268851,19477106,-5208255,73.3,True
+2032,89913663,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16797758,3023596,13774162,19642914,-5868752,70.1,True
+2032,89913663,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,18113572,3260443,14853129,19642914,-4789785,75.6,True
+2032,89913663,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19290697,3472325,15818372,19642914,-3824542,80.5,True
+2032,89913663,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16269258,2928466,13340792,19642914,-6302122,67.9,True
+2032,89913663,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,17548947,3158810,14390137,19642914,-5252777,73.3,True
+2032,89913663,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18694029,3364925,15329104,19642914,-4313810,78.0,True
+2032,89913663,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),15255733,2746032,12509701,19642914,-7133213,63.7,True
+2032,89913663,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16465715,2963829,13501886,19642914,-6141028,68.7,True
+2032,89913663,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17548947,3158810,14390137,19642914,-5252777,73.3,True
+2033,90498102,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16848151,3032667,13815484,19810134,-5994650,69.7,True
+2033,90498102,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,18339992,3301199,15038793,19810134,-4771341,75.9,True
+2033,90498102,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19686156,3543508,16142648,19810134,-3667486,81.5,True
+2033,90498102,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16252989,2925538,13327451,19810134,-6482683,67.3,True
+2033,90498102,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,17698113,3185660,14512453,19810134,-5297681,73.3,True
+2033,90498102,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19002480,3420446,15582034,19810134,-4228100,78.7,True
+2033,90498102,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),15118432,2721318,12397114,19810134,-7413020,62.6,True
+2033,90498102,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16473948,2965311,13508637,19810134,-6301497,68.2,True
+2033,90498102,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17698113,3185660,14512453,19810134,-5297681,73.3,True
+2034,91086339,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16898695,3041765,13856930,19978778,-6121848,69.4,True
+2034,91086339,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,18569242,3342464,15226778,19978778,-4752000,76.2,True
+2034,91086339,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,20089723,3616150,16473573,19978778,-3505205,82.5,True
+2034,91086339,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16236736,2922612,13314124,19978778,-6664654,66.6,True
+2034,91086339,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,17848547,3212738,14635809,19978778,-5342969,73.3,True
+2034,91086339,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19316021,3476884,15839137,19978778,-4139641,79.3,True
+2034,91086339,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),14982366,2696826,12285540,19978778,-7693238,61.5,True
+2034,91086339,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16482185,2966793,13515392,19978778,-6463386,67.6,True
+2034,91086339,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,17848547,3212738,14635809,19978778,-5342969,73.3,True
+2035,91678400,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),16949392,3050891,13898501,20148857,-6250356,69.0,True
+2035,91678400,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,18801357,3384244,15417113,20148857,-4731744,76.5,True
+2035,91678400,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,20501562,3690281,16811281,20148857,-3337576,83.4,True
+2035,91678400,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16220499,2919690,13300809,20148857,-6848048,66.0,True
+2035,91678400,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,18000260,3240047,14760213,20148857,-5388644,73.3,True
+2035,91678400,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19634736,3534252,16100484,20148857,-4048373,79.9,True
+2035,91678400,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),14847524,2672554,12174970,20148857,-7973887,60.4,True
+2035,91678400,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16490426,2968277,13522149,20148857,-6626708,67.1,True
+2035,91678400,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18000260,3240047,14760213,20148857,-5388644,73.3,True
+2036,92274310,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17000240,3060043,13940197,20320385,-6380188,68.6,True
+2036,92274310,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,19036374,3426547,15609827,20320385,-4710558,76.8,True
+2036,92274310,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,20921844,3765932,17155912,20320385,-3164473,84.4,True
+2036,92274310,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16204279,2916770,13287509,20320385,-7032876,65.4,True
+2036,92274310,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,18153262,3267587,14885675,20320385,-5434710,73.3,True
+2036,92274310,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19958709,3592568,16366141,20320385,-3954244,80.5,True
+2036,92274310,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),14713897,2648501,12065396,20320385,-8254989,59.4,True
+2036,92274310,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16498671,2969761,13528910,20320385,-6791475,66.6,True
+2036,92274310,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18153262,3267587,14885675,20320385,-5434710,73.3,True
+2037,92874093,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17051240,3069223,13982017,20493372,-6511355,68.2,True
+2037,92874093,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,19274329,3469379,15804950,20493372,-4688422,77.1,True
+2037,92874093,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,21350742,3843134,17507608,20493372,-2985764,85.4,True
+2037,92874093,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16188075,2913854,13274221,20493372,-7219151,64.8,True
+2037,92874093,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,18307565,3295362,15012203,20493372,-5481169,73.3,True
+2037,92874093,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,20288028,3651845,16636183,20493372,-3857189,81.2,True
+2037,92874093,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),14581472,2624665,11956807,20493372,-8536565,58.3,True
+2037,92874093,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16506920,2971246,13535674,20493372,-6957698,66.0,True
+2037,92874093,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18307565,3295362,15012203,20493372,-5481169,73.3,True
+2038,93477775,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17102394,3078431,14023963,20667832,-6643869,67.9,True
+2038,93477775,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,19515258,3512746,16002512,20667832,-4665320,77.4,True
+2038,93477775,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,21788432,3921918,17866514,20667832,-2801318,86.4,True
+2038,93477775,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16171886,2910939,13260947,20667832,-7406885,64.2,True
+2038,93477775,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,18463179,3323372,15139807,20667832,-5528025,73.3,True
+2038,93477775,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,20622780,3712100,16910680,20667832,-3757152,81.8,True
+2038,93477775,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),14450238,2601043,11849195,20667832,-8818637,57.3,True
+2038,93477775,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16515174,2972731,13542443,20667832,-7125389,65.5,True
+2038,93477775,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18463179,3323372,15139807,20667832,-5528025,73.3,True
+2039,94085380,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17153701,3087666,14066035,20843777,-6777742,67.5,True
+2039,94085380,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,19759199,3556656,16202543,20843777,-4641234,77.7,True
+2039,94085380,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,22235095,4002317,18232778,20843777,-2610999,87.5,True
+2039,94085380,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16155715,2908029,13247686,20843777,-7596091,63.6,True
+2039,94085380,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,18620116,3351621,15268495,20843777,-5575282,73.3,True
+2039,94085380,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,20963056,3773350,17189706,20843777,-3654071,82.5,True
+2039,94085380,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),14320186,2577633,11742553,20843777,-9101224,56.3,True
+2039,94085380,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16523431,2974218,13549213,20843777,-7294564,65.0,True
+2039,94085380,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18620116,3351621,15268495,20843777,-5575282,73.3,True
+2040,94696935,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17205162,3096929,14108233,21021220,-6912987,67.1,True
+2040,94696935,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,20006189,3601114,16405075,21021220,-4616145,78.0,True
+2040,94696935,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,22690914,4084365,18606549,21021220,-2414671,88.5,True
+2040,94696935,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16139559,2905121,13234438,21021220,-7786782,63.0,True
+2040,94696935,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,18778387,3380110,15398277,21021220,-5622943,73.3,True
+2040,94696935,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,21308946,3835610,17473336,21021220,-3547884,83.1,True
+2040,94696935,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),14191305,2554435,11636870,21021220,-9384350,55.4,True
+2040,94696935,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16531693,2975705,13555988,21021220,-7465232,64.5,True
+2040,94696935,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18778387,3380110,15398277,21021220,-5622943,73.3,True
+2041,95312465,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17256778,3106220,14150558,21200174,-7049616,66.7,True
+2041,95312465,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,20256266,3646128,16610138,21200174,-4590036,78.3,True
+2041,95312465,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,23156078,4168094,18987984,21200174,-2212190,89.6,True
+2041,95312465,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16123419,2902215,13221204,21200174,-7978970,62.4,True
+2041,95312465,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,18938003,3408841,15529162,21200174,-5671012,73.3,True
+2041,95312465,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,21660544,3898898,17761646,21200174,-3438528,83.8,True
+2041,95312465,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),14063583,2531445,11532138,21200174,-9668036,54.4,True
+2041,95312465,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16539959,2977193,13562766,21200174,-7637408,64.0,True
+2041,95312465,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,18938003,3408841,15529162,21200174,-5671012,73.3,True
+2042,95931996,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17308548,3115539,14193009,21380651,-7187642,66.4,True
+2042,95931996,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,20509469,3691704,16817765,21380651,-4562886,78.7,True
+2042,95931996,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,23630777,4253540,19377237,21380651,-2003414,90.6,True
+2042,95931996,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16107296,2899313,13207983,21380651,-8172668,61.8,True
+2042,95931996,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,19098976,3437816,15661160,21380651,-5719491,73.2,True
+2042,95931996,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,22017943,3963230,18054713,21380651,-3325938,84.4,True
+2042,95931996,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),13937011,2508662,11428349,21380651,-9952302,53.5,True
+2042,95931996,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16548229,2978681,13569548,21380651,-7811103,63.5,True
+2042,95931996,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19098976,3437816,15661160,21380651,-5719491,73.2,True
+2043,96555554,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17360474,3124885,14235589,21562665,-7327076,66.0,True
+2043,96555554,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,20765838,3737851,17027987,21562665,-4534678,79.0,True
+2043,96555554,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,24115208,4340737,19774471,21562665,-1788194,91.7,True
+2043,96555554,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16091189,2896414,13194775,21562665,-8367890,61.2,True
+2043,96555554,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,19261318,3467037,15794281,21562665,-5768384,73.2,True
+2043,96555554,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,22381239,4028623,18352616,21562665,-3210049,85.1,True
+2043,96555554,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),13811577,2486084,11325493,21562665,-10237172,52.5,True
+2043,96555554,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16556503,2980171,13576332,21562665,-7986333,63.0,True
+2043,96555554,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19261318,3467037,15794281,21562665,-5768384,73.2,True
+2044,97183165,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17412555,3134260,14278295,21746228,-7467933,65.7,True
+2044,97183165,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,21025411,3784574,17240837,21746228,-4505391,79.3,True
+2044,97183165,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,24609570,4429723,20179847,21746228,-1566381,92.8,True
+2044,97183165,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16075097,2893517,13181580,21746228,-8564648,60.6,True
+2044,97183165,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,19425039,3496507,15928532,21746228,-5817696,73.2,True
+2044,97183165,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,22750529,4095095,18655434,21746228,-3090794,85.8,True
+2044,97183165,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),13687273,2463709,11223564,21746228,-10522664,51.6,True
+2044,97183165,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16564781,2981661,13583120,21746228,-8163108,62.5,True
+2044,97183165,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19425039,3496507,15928532,21746228,-5817696,73.2,True
+2045,97814856,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17464793,3143663,14321130,21931353,-7610223,65.3,True
+2045,97814856,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,21288228,3831881,17456347,21931353,-4475006,79.6,True
+2045,97814856,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,25114066,4520532,20593534,21931353,-1337819,93.9,True
+2045,97814856,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16059022,2890624,13168398,21931353,-8762955,60.0,True
+2045,97814856,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,19590152,3526227,16063925,21931353,-5867428,73.2,True
+2045,97814856,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,23125913,4162664,18963249,21931353,-2968104,86.5,True
+2045,97814856,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),13564088,2441536,11122552,21931353,-10808801,50.7,True
+2045,97814856,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16573064,2983152,13589912,21931353,-8341441,62.0,True
+2045,97814856,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19590152,3526227,16063925,21931353,-5867428,73.2,True
+2046,98450652,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17517187,3153094,14364093,22118055,-7753962,64.9,True
+2046,98450652,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,21554331,3879780,17674551,22118055,-4443504,79.9,True
+2046,98450652,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,25628905,4613203,21015702,22118055,-1102353,95.0,True
+2046,98450652,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16042963,2887733,13155230,22118055,-8962825,59.5,True
+2046,98450652,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,19756668,3556200,16200468,22118055,-5917587,73.2,True
+2046,98450652,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,23507491,4231348,19276143,22118055,-2841912,87.2,True
+2046,98450652,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),13442011,2419562,11022449,22118055,-11095606,49.8,True
+2046,98450652,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16581350,2984643,13596707,22118055,-8521348,61.5,True
+2046,98450652,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19756668,3556200,16200468,22118055,-5917587,73.2,True
+2047,99090582,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17569739,3162553,14407186,22306346,-7899160,64.6,True
+2047,99090582,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,21823760,3928277,17895483,22306346,-4410863,80.2,True
+2047,99090582,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,26154297,4707773,21446524,22306346,-859822,96.1,True
+2047,99090582,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16026920,2884846,13142074,22306346,-9164272,58.9,True
+2047,99090582,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,19924600,3586428,16338172,22306346,-5968174,73.2,True
+2047,99090582,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,23895364,4301166,19594198,22306346,-2712148,87.8,True
+2047,99090582,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),13321033,2397786,10923247,22306346,-11383099,49.0,True
+2047,99090582,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16589641,2986135,13603506,22306346,-8702840,61.0,True
+2047,99090582,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,19924600,3586428,16338172,22306346,-5968174,73.2,True
+2048,99734670,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17622448,3172041,14450407,22496240,-8045833,64.2,True
+2048,99734670,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,22096557,3977380,18119177,22496240,-4377063,80.5,True
+2048,99734670,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,26690460,4804283,21886177,22496240,-610063,97.3,True
+2048,99734670,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),16010893,2881961,13128932,22496240,-9367308,58.4,True
+2048,99734670,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,20093959,3616913,16477046,22496240,-6019194,73.2,True
+2048,99734670,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,24289638,4372135,19917503,22496240,-2578737,88.5,True
+2048,99734670,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),13201144,2376206,10824938,22496240,-11671302,48.1,True
+2048,99734670,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16597936,2987628,13610308,22496240,-8885932,60.5,True
+2048,99734670,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,20093959,3616913,16477046,22496240,-6019194,73.2,True
+2049,100382946,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17675315,3181557,14493758,22687750,-8193992,63.9,True
+2049,100382946,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,22372764,4027098,18345666,22687750,-4342084,80.9,True
+2049,100382946,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,27237615,4902771,22334844,22687750,-352906,98.4,True
+2049,100382946,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),15994882,2879079,13115803,22687750,-9571947,57.8,True
+2049,100382946,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,20264758,3647656,16617102,22687750,-6070648,73.2,True
+2049,100382946,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,24690417,4444275,20246142,22687750,-2441608,89.2,True
+2049,100382946,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),13082333,2354820,10727513,22687750,-11960237,47.3,True
+2049,100382946,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16606235,2989122,13617113,22687750,-9070637,60.0,True
+2049,100382946,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,20264758,3647656,16617102,22687750,-6070648,73.2,True
+2050,101035435,optimist_ssp126,İyimser (SSP1-2.6),baz,Baz Senaryo (mevcut trend),17728341,3191101,14537240,22880891,-8343651,63.5,True
+2050,101035435,optimist_ssp126,İyimser (SSP1-2.6),ileri_sulama,İleri Sulama Politikası,22652424,4077436,18574988,22880891,-4305903,81.2,True
+2050,101035435,optimist_ssp126,İyimser (SSP1-2.6),yuksek_teknoloji,Yüksek Teknoloji + Sulama,27795986,5003277,22792709,22880891,-88182,99.6,True
+2050,101035435,orta_ssp245,Orta (SSP2-4.5),baz,Baz Senaryo (mevcut trend),15978888,2876200,13102688,22880891,-9778203,57.3,True
+2050,101035435,orta_ssp245,Orta (SSP2-4.5),ileri_sulama,İleri Sulama Politikası,20437008,3678661,16758347,22880891,-6122544,73.2,True
+2050,101035435,orta_ssp245,Orta (SSP2-4.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,25097809,4517606,20580203,22880891,-2300688,89.9,True
+2050,101035435,kotumser_ssp585,Kötümser (SSP5-8.5),baz,Baz Senaryo (mevcut trend),12964592,2333627,10630965,22880891,-12249926,46.5,True
+2050,101035435,kotumser_ssp585,Kötümser (SSP5-8.5),ileri_sulama,İleri Sulama Politikası,16614538,2990617,13623921,22880891,-9256970,59.5,True
+2050,101035435,kotumser_ssp585,Kötümser (SSP5-8.5),yuksek_teknoloji,Yüksek Teknoloji + Sulama,20437008,3678661,16758347,22880891,-6122544,73.2,True
