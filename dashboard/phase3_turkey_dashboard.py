@@ -7,6 +7,17 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
+import json
+
+
+base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CITY_PATH = os.path.join(base, "geo", "turkey-ilçeler", "cities.json")
+
+
+def load_cities():
+    with open(CITY_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
+
 st.set_page_config(page_title="AGRI-2050 | Türkiye", page_icon="🌾", layout="wide")
 
 @st.cache_data
@@ -89,21 +100,108 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
     "🌾 Gerçek Verim", "🍞 Gıda Güvenliği", "🚿 DSİ Sulama"
 ])
 
+import plotly.express as px
+import pandas as pd
+
 with tab1:
-    st.subheader("Türkiye Tarım Skoru Haritası")
+    st.subheader("🗺 Türkiye Tarım Haritası")
+
     df_map = scores.copy()
-    df_map['lat'] = df_map['il'].map(lambda x: koordinatlar.get(x,(39,35))[0])
-    df_map['lon'] = df_map['il'].map(lambda x: koordinatlar.get(x,(39,35))[1])
-    fig = px.scatter_mapbox(
+    df_map['lat'] = df_map['il'].map(lambda x: koordinatlar.get(x, (39, 35))[0])
+    df_map['lon'] = df_map['il'].map(lambda x: koordinatlar.get(x, (39, 35))[1])
+
+    fig_turkey = px.scatter_mapbox(
         df_map, lat='lat', lon='lon',
-        size='tarim_skoru', color='tarim_skoru', hover_name='il',
+        size='tarim_skoru', color='tarim_skoru',
+        hover_name='il',
         hover_data={'tarim_skoru':':.3f','ndvi_ort':':.3f','yagis_ort':':.0f','lat':False,'lon':False},
         color_continuous_scale='RdYlGn', size_max=30,
-        zoom=5.5, center={"lat":39.0,"lon":35.0}, mapbox_style="carto-positron",
+        zoom=5.5, center={"lat": 39.0, "lon": 35.0},
+        mapbox_style="carto-positron"
     )
-    fig.update_layout(height=520, margin=dict(l=0,r=0,t=10,b=0))
-    st.plotly_chart(fig, use_container_width=True)
+    fig_turkey.update_layout(height=480, margin=dict(l=0,r=0,t=10,b=0))
+    st.plotly_chart(fig_turkey, use_container_width=True, key="turkey_map")
 
+    il_listesi = sorted(scores['il'].tolist())
+    default_idx = il_listesi.index(st.session_state.get("selected_il", "Konya")) if st.session_state.get("selected_il", "Konya") in il_listesi else 0
+    secili_il = st.selectbox("📍 İl seç", il_listesi, index=default_idx, key="tab1_il_sec")
+    st.session_state["selected_il"] = secili_il
+
+    st.divider()
+    st.subheader(f"🧭 {secili_il} İlçeleri")
+
+    try:
+        base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        cities_path = os.path.join(base, "geo", "turkey-ilçeler", "cities.json")
+        with open(cities_path, encoding="utf-8") as f:
+            cities_data = json.load(f)
+
+        city = next((c for c in cities_data if c["name"] == secili_il), None)
+
+        if city is None:
+            st.warning(f"{secili_il} için ilçe verisi bulunamadı.")
+        else:
+            df_ilce = pd.DataFrame([
+                {"ilce": t["name"], "lat": t["latitude"], "lon": t["longitude"]}
+                for t in city["towns"]
+            ])
+
+            # Tarım skoru ekle
+            ilce_skor_path = os.path.join(base, "data/processed/ilce_scores.csv")
+            if os.path.exists(ilce_skor_path):
+                ilce_skor = pd.read_csv(ilce_skor_path)
+                df_ilce = df_ilce.merge(
+                    ilce_skor[ilce_skor['il']==secili_il][['ilce','tarim_skoru','yagis_ort','ndvi_ort']],
+                    on='ilce', how='left'
+                )
+                df_ilce['tarim_skoru'] = df_ilce['tarim_skoru'].fillna(df_ilce['tarim_skoru'].mean())
+                df_ilce['yagis_ort']   = df_ilce['yagis_ort'].fillna(0)
+                df_ilce['ndvi_ort']    = df_ilce['ndvi_ort'].fillna(0)
+            else:
+                df_ilce['tarim_skoru'] = 5.0
+                df_ilce['yagis_ort']   = 0.0
+                df_ilce['ndvi_ort']    = 0.0
+
+            il_skor = scores[scores['il']==secili_il]['tarim_skoru'].values
+            c1, c2, c3, c4 = st.columns(4)
+            c1.metric("İlçe Sayısı", len(df_ilce))
+            c2.metric("İl Tarım Skoru", f"{il_skor[0]:.3f}" if len(il_skor) else "—")
+            c3.metric("En Yüksek İlçe", df_ilce.nlargest(1,'tarim_skoru')['ilce'].values[0] if 'tarim_skoru' in df_ilce else "—")
+            c4.metric("En Düşük İlçe",  df_ilce.nsmallest(1,'tarim_skoru')['ilce'].values[0] if 'tarim_skoru' in df_ilce else "—")
+
+            fig_ilce = px.scatter_mapbox(
+                df_ilce, lat="lat", lon="lon",
+                hover_name="ilce",
+                color="tarim_skoru",
+                size="tarim_skoru",
+                color_continuous_scale="RdYlGn",
+                size_max=20,
+                hover_data={
+                    'tarim_skoru':':.3f',
+                    'yagis_ort':':.0f',
+                    'ndvi_ort':':.3f',
+                    'lat':False,'lon':False
+                },
+                zoom=8,
+                center={"lat": city["latitude"], "lon": city["longitude"]},
+                mapbox_style="carto-positron"
+            )
+            fig_ilce.update_layout(height=420, margin=dict(l=0,r=0,t=10,b=0))
+            st.plotly_chart(fig_ilce, use_container_width=True)
+
+            # İlçe tablosu
+            df_tablo = df_ilce[['ilce','tarim_skoru','yagis_ort','ndvi_ort']].copy()
+            df_tablo.columns = ['İlçe','Tarım Skoru','Yağış Ort (mm)','NDVI Ort']
+            df_tablo = df_tablo.sort_values('Tarım Skoru', ascending=False).reset_index(drop=True)
+            df_tablo.index += 1
+            st.dataframe(df_tablo.style.format({
+                'Tarım Skoru':'{:.3f}',
+                'Yağış Ort (mm)':'{:.0f}',
+                'NDVI Ort':'{:.3f}'
+            }), use_container_width=True, height=300)
+
+    except Exception as e:
+        st.error(f"İlçe verisi yüklenemedi: {e}")
 with tab2:
     st.subheader("İl Bazlı Karşılaştırma")
     top_n = st.slider("Kaç il?", 10, 81, 20, key="tab2_slider")
