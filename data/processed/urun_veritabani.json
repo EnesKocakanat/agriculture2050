@@ -1,0 +1,317 @@
+{
+  "Buğday": {
+    "kategori": "Tahıl",
+    "yagis_min": 250,
+    "yagis_max": 1000,
+    "ndvi_min": 0.2,
+    "ndvi_max": 0.7,
+    "sulama_ihtiyac_mm": 450,
+    "sulama_yontem": "Yağmurlama",
+    "ekim_ay": [
+      10,
+      11
+    ],
+    "hasat_ay": [
+      6,
+      7
+    ],
+    "bakim": "Sonbaharda ekilir, ilkbaharda gübrelenir. Kuru tarıma uygun.",
+    "kar_potansiyel": "Orta",
+    "emoji": "🌾"
+  },
+  "Arpa": {
+    "kategori": "Tahıl",
+    "yagis_min": 200,
+    "yagis_max": 900,
+    "ndvi_min": 0.2,
+    "ndvi_max": 0.65,
+    "sulama_ihtiyac_mm": 350,
+    "sulama_yontem": "Yağmurlama",
+    "ekim_ay": [
+      10,
+      11
+    ],
+    "hasat_ay": [
+      6,
+      7
+    ],
+    "bakim": "Kuraklığa dayanıklı. Az sulama ile yetişir.",
+    "kar_potansiyel": "Orta",
+    "emoji": "🌾"
+  },
+  "Mısır": {
+    "kategori": "Tahıl",
+    "yagis_min": 500,
+    "yagis_max": 1200,
+    "ndvi_min": 0.4,
+    "ndvi_max": 0.9,
+    "sulama_ihtiyac_mm": 600,
+    "sulama_yontem": "Damla veya Yağmurlama",
+    "ekim_ay": [
+      4,
+      5
+    ],
+    "hasat_ay": [
+      9,
+      10
+    ],
+    "bakim": "Yüksek su ihtiyacı. Sıcak iklim sever. Düzenli sulama şart.",
+    "kar_potansiyel": "Yüksek",
+    "emoji": "🌽"
+  },
+  "Ayçiçeği": {
+    "kategori": "Yağlı Tohum",
+    "yagis_min": 350,
+    "yagis_max": 900,
+    "ndvi_min": 0.3,
+    "ndvi_max": 0.8,
+    "sulama_ihtiyac_mm": 400,
+    "sulama_yontem": "Yağmurlama",
+    "ekim_ay": [
+      4,
+      5
+    ],
+    "hasat_ay": [
+      8,
+      9
+    ],
+    "bakim": "Kuraklığa orta dayanıklı. Derin köklü, az sulama yeterli.",
+    "kar_potansiyel": "Orta-Yüksek",
+    "emoji": "🌻"
+  },
+  "Şeker Pancarı": {
+    "kategori": "Endüstriyel",
+    "yagis_min": 400,
+    "yagis_max": 900,
+    "ndvi_min": 0.35,
+    "ndvi_max": 0.8,
+    "sulama_ihtiyac_mm": 550,
+    "sulama_yontem": "Damla",
+    "ekim_ay": [
+      3,
+      4
+    ],
+    "hasat_ay": [
+      10,
+      11
+    ],
+    "bakim": "Derin toprak sever. Düzenli sulama gerekli. Fabrika sözleşmeli.",
+    "kar_potansiyel": "Yüksek",
+    "emoji": "🟫"
+  },
+  "Domates": {
+    "kategori": "Sebze",
+    "yagis_min": 400,
+    "yagis_max": 1200,
+    "ndvi_min": 0.4,
+    "ndvi_max": 0.9,
+    "sulama_ihtiyac_mm": 700,
+    "sulama_yontem": "Damla",
+    "ekim_ay": [
+      3,
+      4,
+      5
+    ],
+    "hasat_ay": [
+      7,
+      8,
+      9
+    ],
+    "bakim": "Sıcak iklim sever. Damla sulama ile %40 su tasarrufu. Hastalığa dikkat.",
+    "kar_potansiyel": "Yüksek",
+    "emoji": "🍅"
+  },
+  "Biber": {
+    "kategori": "Sebze",
+    "yagis_min": 400,
+    "yagis_max": 1100,
+    "ndvi_min": 0.4,
+    "ndvi_max": 0.85,
+    "sulama_ihtiyac_mm": 650,
+    "sulama_yontem": "Damla",
+    "ekim_ay": [
+      3,
+      4
+    ],
+    "hasat_ay": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "bakim": "Sıcak ve güneşli sever. Düzenli sulama. Sera ile yıl uzatılabilir.",
+    "kar_potansiyel": "Yüksek",
+    "emoji": "🌶️"
+  },
+  "Elma": {
+    "kategori": "Meyve",
+    "yagis_min": 500,
+    "yagis_max": 1200,
+    "ndvi_min": 0.45,
+    "ndvi_max": 0.85,
+    "sulama_ihtiyac_mm": 600,
+    "sulama_yontem": "Damla",
+    "ekim_ay": [
+      2,
+      3
+    ],
+    "hasat_ay": [
+      8,
+      9,
+      10
+    ],
+    "bakim": "Soğuk kış gerektirir. Yüksek rakımda iyi gelişir. Budama önemli.",
+    "kar_potansiyel": "Yüksek",
+    "emoji": "🍎"
+  },
+  "Üzüm (Bağ)": {
+    "kategori": "Meyve",
+    "yagis_min": 300,
+    "yagis_max": 900,
+    "ndvi_min": 0.3,
+    "ndvi_max": 0.8,
+    "sulama_ihtiyac_mm": 450,
+    "sulama_yontem": "Damla",
+    "ekim_ay": [
+      2,
+      3
+    ],
+    "hasat_ay": [
+      8,
+      9,
+      10
+    ],
+    "bakim": "Kuraklığa dayanıklı. Az sulama ile kaliteli ürün. Budama kritik.",
+    "kar_potansiyel": "Yüksek",
+    "emoji": "🍇"
+  },
+  "Zeytin": {
+    "kategori": "Meyve",
+    "yagis_min": 350,
+    "yagis_max": 800,
+    "ndvi_min": 0.3,
+    "ndvi_max": 0.7,
+    "sulama_ihtiyac_mm": 350,
+    "sulama_yontem": "Damla",
+    "ekim_ay": [
+      10,
+      11
+    ],
+    "hasat_ay": [
+      10,
+      11,
+      12
+    ],
+    "bakim": "Akdeniz iklimi sever. Az bakım. Dondan korunmalı (-7°C altı tehlikeli).",
+    "kar_potansiyel": "Yüksek",
+    "emoji": "🫒"
+  },
+  "Çay": {
+    "kategori": "Endüstriyel",
+    "yagis_min": 1200,
+    "yagis_max": 3000,
+    "ndvi_min": 0.6,
+    "ndvi_max": 0.95,
+    "sulama_ihtiyac_mm": 0,
+    "sulama_yontem": "Yağışa bağlı (sulama gerekmez)",
+    "ekim_ay": [
+      3,
+      4
+    ],
+    "hasat_ay": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "bakim": "Asidik toprak sever. Çok yağış şart. Karadeniz kıyısına özgü.",
+    "kar_potansiyel": "Yüksek",
+    "emoji": "🍵"
+  },
+  "Fındık": {
+    "kategori": "Sert Kabuklu",
+    "yagis_min": 700,
+    "yagis_max": 2000,
+    "ndvi_min": 0.5,
+    "ndvi_max": 0.9,
+    "sulama_ihtiyac_mm": 200,
+    "sulama_yontem": "Yağışa bağlı / Damla",
+    "ekim_ay": [
+      11,
+      12
+    ],
+    "hasat_ay": [
+      8,
+      9
+    ],
+    "bakim": "Karadeniz iklimine uygun. Eğimli arazide yetişir. Az bakım.",
+    "kar_potansiyel": "Çok Yüksek",
+    "emoji": "🌰"
+  },
+  "Pamuk": {
+    "kategori": "Endüstriyel",
+    "yagis_min": 500,
+    "yagis_max": 1500,
+    "ndvi_min": 0.4,
+    "ndvi_max": 0.85,
+    "sulama_ihtiyac_mm": 800,
+    "sulama_yontem": "Damla veya Yüzey",
+    "ekim_ay": [
+      4,
+      5
+    ],
+    "hasat_ay": [
+      9,
+      10,
+      11
+    ],
+    "bakim": "Sıcak iklim şart. Çukurova ve GAP bölgesine uygun. Çok sulama.",
+    "kar_potansiyel": "Yüksek",
+    "emoji": "🌿"
+  },
+  "Soğan": {
+    "kategori": "Sebze",
+    "yagis_min": 300,
+    "yagis_max": 900,
+    "ndvi_min": 0.25,
+    "ndvi_max": 0.7,
+    "sulama_ihtiyac_mm": 400,
+    "sulama_yontem": "Yağmurlama veya Damla",
+    "ekim_ay": [
+      3,
+      4,
+      9,
+      10
+    ],
+    "hasat_ay": [
+      6,
+      7,
+      8
+    ],
+    "bakim": "Kuru ve sıcak iklimde iyi verim. İç Anadolu'ya uygun.",
+    "kar_potansiyel": "Orta",
+    "emoji": "🧅"
+  },
+  "Patates": {
+    "kategori": "Sebze",
+    "yagis_min": 400,
+    "yagis_max": 1000,
+    "ndvi_min": 0.35,
+    "ndvi_max": 0.8,
+    "sulama_ihtiyac_mm": 500,
+    "sulama_yontem": "Yağmurlama",
+    "ekim_ay": [
+      3,
+      4
+    ],
+    "hasat_ay": [
+      7,
+      8,
+      9
+    ],
+    "bakim": "Serin iklim sever. Yüksek rakımda kaliteli. Düzenli sulama.",
+    "kar_potansiyel": "Orta-Yüksek",
+    "emoji": "🥔"
+  }
+}

@@ -94,10 +94,10 @@ c3.metric("Ortalama NDVI", f"{scores['ndvi_ort'].mean():.3f}")
 c4.metric("Kuraklık Riskli İl", int(scores['kuraklık_yil_gercek'].ge(2).sum()))
 st.divider()
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
     "🗺 Türkiye Haritası", "📊 İl Karşılaştırma", "🌧 Yağış & NDVI",
     "🏆 İl Sıralaması", "🔮 2025-2050 Projeksiyon", "💧 Sulama Planı",
-    "🌾 Gerçek Verim", "🍞 Gıda Güvenliği", "🚿 DSİ Sulama"
+    "🌾 Gerçek Verim", "🍞 Gıda Güvenliği", "🚿 DSİ Sulama", "🌱 Tarım Danışmanı"
 ])
 
 import plotly.express as px
@@ -556,6 +556,204 @@ with tab9:
         st.info("💡 **Model Bulgusu:** DSİ sulama oranı, ML modelinde buğday verimi için "
                 "en belirleyici özellik olarak öne çıkmıştır (%38.8 önem skoru). "
                 "Sulama ile hububat verimi ortalama %193 artmaktadır.")
+
+
+
+with tab10:
+    st.subheader("🌱 Tarım Danışmanı — İlçe Bazlı Ürün & Sulama Önerisi")
+
+    # Veri yükle
+    base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    @st.cache_data
+    def load_advisor_data():
+        urun_path  = os.path.join(base_path, "data/processed/ilce_urun_onerileri.csv")
+        ilce_path  = os.path.join(base_path, "data/processed/ilce_scores.csv")
+        sulama_path= os.path.join(base_path, "data/processed/sulama_detay.csv")
+        urun_df    = pd.read_csv(urun_path)  if os.path.exists(urun_path)   else None
+        ilce_df    = pd.read_csv(ilce_path)  if os.path.exists(ilce_path)   else None
+        sulama_df  = pd.read_csv(sulama_path)if os.path.exists(sulama_path) else None
+        return urun_df, ilce_df, sulama_df
+
+    urun_df, ilce_df, sulama_df = load_advisor_data()
+
+    if urun_df is None:
+        st.warning("Veri bulunamadı. Önce `python src/phase7_crop_advisor.py` çalıştırın.")
+    else:
+        # ── Seçim ──
+        col_il, col_ilce = st.columns(2)
+        with col_il:
+            il_sec = st.selectbox("🏙️ İl seçin", sorted(urun_df['il'].unique()), key="danisman_il")
+        with col_ilce:
+            ilce_listesi = sorted(urun_df[urun_df['il']==il_sec]['ilce'].unique())
+            ilce_sec = st.selectbox("📍 İlçe seçin", ilce_listesi, key="danisman_ilce")
+
+        # İlçe iklim verisi
+        ilce_row = ilce_df[(ilce_df['il']==il_sec) & (ilce_df['ilce']==ilce_sec)]
+        if len(ilce_row) > 0:
+            ilce_row = ilce_row.iloc[0]
+            yagis = ilce_row.get('yagis_ort', 0)
+            ndvi  = ilce_row.get('ndvi_ort', 0)
+            skor  = ilce_row.get('tarim_skoru', 0)
+        else:
+            yagis, ndvi, skor = 0, 0, 0
+
+        # ── İklim Özeti ──
+        st.divider()
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("📍 İlçe", ilce_sec)
+        c2.metric("🌧 Yıllık Yağış", f"{yagis:.0f} mm")
+        c3.metric("🛰 NDVI Ortalaması", f"{ndvi:.3f}")
+        c4.metric("🌾 Tarım Skoru", f"{skor:.2f}/10")
+
+        # İklim yorumu
+        if yagis < 300:
+            iklim_yorum = "🔴 Çok kurak — sulama zorunlu, kuraklığa dayanıklı ürünler tercih edin"
+        elif yagis < 500:
+            iklim_yorum = "🟡 Yarı kurak — sulama gerekli, su tasarruflu yöntemler önerilir"
+        elif yagis < 900:
+            iklim_yorum = "🟢 Yeterli yağış — çoğu ürün yetişir, sulama destekleyici"
+        else:
+            iklim_yorum = "🔵 Yağışlı iklim — Karadeniz ürünleri (çay, fındık) için ideal"
+        st.info(iklim_yorum)
+
+        st.divider()
+
+        # ── Ürün Önerileri ──
+        st.markdown("### 🏆 Bu İlçeye En Uygun Ürünler")
+        df_sec = urun_df[(urun_df['il']==il_sec) & (urun_df['ilce']==ilce_sec)].copy()
+
+        if len(df_sec) == 0:
+            st.warning("Bu ilçe için öneri bulunamadı.")
+        else:
+            # Uygunluk bar chart
+            fig_urun = px.bar(
+                df_sec.sort_values('uygunluk_pct'),
+                x='uygunluk_pct', y='urun', orientation='h',
+                color='uygunluk_pct', color_continuous_scale='RdYlGn',
+                labels={'uygunluk_pct':'Uygunluk (%)', 'urun':'Ürün'},
+                title=f"{ilce_sec} ({il_sec}) — Ürün Uygunluk Skoru",
+                text='uygunluk_pct'
+            )
+            fig_urun.update_traces(texttemplate='%{text:.0f}%', textposition='outside')
+            fig_urun.update_layout(height=350, showlegend=False, xaxis_range=[0,110])
+            st.plotly_chart(fig_urun, use_container_width=True)
+
+            # Ürün kartları
+            st.markdown("### 📋 Detaylı Ürün Bilgisi")
+            cols = st.columns(min(len(df_sec), 3))
+            for idx, (_, row) in enumerate(df_sec.iterrows()):
+                with cols[idx % 3]:
+                    uygunluk_renk = "🟢" if row['uygunluk_pct'] >= 80 else ("🟡" if row['uygunluk_pct'] >= 60 else "🔴")
+                    st.markdown(f"""
+**{row['emoji']} {row['urun']}**
+- {uygunluk_renk} Uygunluk: **%{row['uygunluk_pct']:.0f}**
+- 📂 Kategori: {row['kategori']}
+- 💰 Kâr Potansiyeli: {row['kar_potansiyel']}
+- 🌱 Ekim: {row['ekim_aylari']}
+- 🌾 Hasat: {row['hasat_aylari']}
+- 💧 Sulama: {row['sulama_yontem']}
+- 📝 {row['bakim']}
+""")
+                    st.markdown("---")
+
+        st.divider()
+
+        # ── Sulama Planı ──
+        st.markdown("### 💧 Sulama Yöntemi Karşılaştırması")
+
+        if sulama_df is not None:
+            col1, col2, col3 = st.columns(3)
+            for i, (_, s) in enumerate(sulama_df.iterrows()):
+                with [col1, col2, col3][i % 3]:
+                    if s['yontem'] == 'Damla':
+                        renk = "🟢"
+                        tavsiye = "✅ Bu ilçe için önerilen"
+                    elif s['yontem'] == 'Yağmurlama':
+                        renk = "🟡"
+                        tavsiye = "⚠️ Orta verimli seçenek"
+                    else:
+                        renk = "🔴"
+                        tavsiye = "❌ Önerilmez (su israfı)"
+
+                    st.markdown(f"""
+**{renk} {s['yontem']} Sulama**
+
+{tavsiye}
+- ⚡ Verimlilik: {s['verimlilik']}
+- 💦 Su Tasarrufu: {s['su_tasarrufu']}
+- 💰 Kurulum: {s['maliyet_ha']} /ha
+- 🌿 Uygun Ürünler: {s['uygun_urunler']}
+- ✅ {s['avantaj']}
+""")
+
+        st.divider()
+
+        # ── Aylık Sulama Takvimi ──
+        st.markdown("### 📅 Yıllık Sulama & Bakım Takvimi")
+
+        en_iyi_urun = df_sec.iloc[0] if len(df_sec) > 0 else None
+        if en_iyi_urun is not None:
+            aylar = ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"]
+            # Sulama yoğunluğu (yaz ayları daha yoğun)
+            sulama_yogunluk = [20,25,40,60,80,100,100,90,70,45,25,15]
+            # Nem ihtiyacı
+            nem_ihtiyac = [30,30,50,70,85,95,95,90,75,55,35,25]
+
+            df_takvim = pd.DataFrame({
+                "Ay": aylar,
+                "Sulama İhtiyacı (%)": sulama_yogunluk,
+                "Nem İhtiyacı (%)": nem_ihtiyac
+            })
+
+            fig_takvim = px.bar(df_takvim, x="Ay",
+                                y=["Sulama İhtiyacı (%)", "Nem İhtiyacı (%)"],
+                                barmode='group',
+                                title=f"{en_iyi_urun['urun']} — Aylık Sulama Takvimi",
+                                color_discrete_map={
+                                    "Sulama İhtiyacı (%)": "#3b82f6",
+                                    "Nem İhtiyacı (%)": "#22c55e"
+                                })
+            fig_takvim.update_layout(height=320)
+            st.plotly_chart(fig_takvim, use_container_width=True)
+
+        # ── 2050 Projeksiyonu ──
+        st.divider()
+        st.markdown("### 🔮 2050 İklim Projeksiyonu")
+
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(f"""
+**{ilce_sec} için 2050 Senaryoları:**
+
+| Senaryo | Yağış Değişimi | Risk |
+|---------|---------------|------|
+| İyimser (SSP1-2.6) | -%8 | Düşük |
+| Orta (SSP2-4.5) | -%15 | Orta |
+| Kötümser (SSP5-8.5) | -%30 | Yüksek |
+""")
+        with col2:
+            yagis_2050 = {
+                "İyimser": yagis * 0.92,
+                "Orta": yagis * 0.85,
+                "Kötümser": yagis * 0.70,
+            }
+            df_2050 = pd.DataFrame({
+                "Senaryo": list(yagis_2050.keys()),
+                "Yağış (mm)": list(yagis_2050.values())
+            })
+            fig_2050 = px.bar(df_2050, x="Senaryo", y="Yağış (mm)",
+                              color="Senaryo",
+                              color_discrete_sequence=["#22c55e","#f59e0b","#ef4444"],
+                              title=f"2050 Tahmini Yağış — {ilce_sec}")
+            fig_2050.add_hline(y=yagis, line_dash="dash",
+                               annotation_text=f"Güncel: {yagis:.0f}mm")
+            fig_2050.update_layout(height=280, showlegend=False)
+            st.plotly_chart(fig_2050, use_container_width=True)
+
+        st.success(f"💡 **Tavsiye:** {ilce_sec} ilçesinde en güvenli uzun vadeli yatırım "
+                   f"**{df_sec.iloc[0]['emoji']} {df_sec.iloc[0]['urun']}** olup "
+                   f"**{df_sec.iloc[0]['sulama_yontem']}** sulama yöntemi önerilmektedir.")
 
 st.divider()
 st.caption("AGRI-2050 | GEE Sentinel-2/Landsat + Open-Meteo ERA5 + TÜİK + DSİ | 2004-2024")
