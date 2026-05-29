@@ -94,10 +94,11 @@ c3.metric("Ortalama NDVI", f"{scores['ndvi_ort'].mean():.3f}")
 c4.metric("Kuraklık Riskli İl", int(scores['kuraklık_yil_gercek'].ge(2).sum()))
 st.divider()
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11 = st.tabs([
     "🗺 Türkiye Haritası", "📊 İl Karşılaştırma", "🌧 Yağış & NDVI",
     "🏆 İl Sıralaması", "🔮 2025-2050 Projeksiyon", "💧 Sulama Planı",
-    "🌾 Gerçek Verim", "🍞 Gıda Güvenliği", "🚿 DSİ Sulama", "🌱 Tarım Danışmanı"
+    "🌾 Gerçek Verim", "🍞 Gıda Güvenliği", "🚿 DSİ Sulama", "🌱 Tarım Danışmanı",
+    " Hava Tahmini"
 ])
 
 import plotly.express as px
@@ -754,6 +755,209 @@ with tab10:
         st.success(f"💡 **Tavsiye:** {ilce_sec} ilçesinde en güvenli uzun vadeli yatırım "
                    f"**{df_sec.iloc[0]['emoji']} {df_sec.iloc[0]['urun']}** olup "
                    f"**{df_sec.iloc[0]['sulama_yontem']}** sulama yöntemi önerilmektedir.")
+        
+
+
+
+with tab11:
+    st.subheader("🌤 Hava Durumu & Tarımsal Uyarılar")
+
+    import requests as req
+    from datetime import datetime, timedelta
+
+    @st.cache_data(ttl=1800)  # 30 dakikada bir güncelle
+    def fetch_weather(lat, lon):
+        url = "https://api.open-meteo.com/v1/forecast"
+        params = {
+            "latitude": lat,
+            "longitude": lon,
+            "current": [
+                "temperature_2m","relative_humidity_2m","precipitation",
+                "wind_speed_10m","weather_code","apparent_temperature"
+            ],
+            "daily": [
+                "temperature_2m_max","temperature_2m_min","precipitation_sum",
+                "wind_speed_10m_max","weather_code","et0_fao_evapotranspiration"
+            ],
+            "timezone": "Europe/Istanbul",
+            "forecast_days": 7
+        }
+        resp = req.get(url, params=params, timeout=15)
+        return resp.json()
+
+    def weather_code_to_text(code):
+        codes = {
+            0: ("☀️", "Açık"), 1: ("🌤", "Az bulutlu"), 2: ("⛅", "Parçalı bulutlu"),
+            3: ("☁️", "Bulutlu"), 45: ("🌫", "Sisli"), 48: ("🌫", "Kırağılı sis"),
+            51: ("🌦", "Hafif çisenti"), 53: ("🌦", "Çisenti"), 55: ("🌧", "Yoğun çisenti"),
+            61: ("🌧", "Hafif yağmur"), 63: ("🌧", "Yağmur"), 65: ("🌧", "Şiddetli yağmur"),
+            71: ("🌨", "Hafif kar"), 73: ("🌨", "Kar"), 75: ("❄️", "Yoğun kar"),
+            80: ("🌦", "Sağanak"), 81: ("🌧", "Kuvvetli sağanak"), 82: ("⛈", "Çok kuvvetli sağanak"),
+            95: ("⛈", "Fırtına"), 96: ("⛈", "Dolu fırtınası"), 99: ("⛈", "Şiddetli dolu"),
+        }
+        return codes.get(code, ("🌡", "Bilinmiyor"))
+
+    # İlçe seç
+    base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    @st.cache_data
+    def load_cities_for_weather():
+        import json
+        path = os.path.join(base_path, "geo", "turkey-ilçeler", "cities.json")
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+
+    cities_weather = load_cities_for_weather()
+
+    col_il, col_ilce = st.columns(2)
+    with col_il:
+        il_hava = st.selectbox("🏙️ İl seçin", sorted([c["name"] for c in cities_weather]), key="hava_il")
+    with col_ilce:
+        city_obj = next((c for c in cities_weather if c["name"] == il_hava), None)
+        ilce_listesi_hava = [t["name"] for t in city_obj["towns"]] if city_obj else []
+        ilce_hava = st.selectbox("📍 İlçe seçin", sorted(ilce_listesi_hava), key="hava_ilce")
+
+    # Koordinat bul
+    town_obj = next((t for t in city_obj["towns"] if t["name"] == ilce_hava), None) if city_obj else None
+    if town_obj is None:
+        st.warning("İlçe koordinatı bulunamadı.")
+    else:
+        lat_hava = town_obj["latitude"]
+        lon_hava = town_obj["longitude"]
+
+        try:
+            weather = fetch_weather(lat_hava, lon_hava)
+            current = weather["current"]
+            daily   = weather["daily"]
+
+            # ── Anlık Hava ──
+            st.divider()
+            icon, durum = weather_code_to_text(current["weather_code"])
+            st.markdown(f"### {icon} {ilce_hava} — Anlık Hava Durumu")
+
+            c1,c2,c3,c4,c5,c6 = st.columns(6)
+            c1.metric("🌡 Sıcaklık", f"{current['temperature_2m']:.1f}°C")
+            c2.metric("🌡 Hissedilen", f"{current['apparent_temperature']:.1f}°C")
+            c3.metric("💧 Nem", f"%{current['relative_humidity_2m']:.0f}")
+            c4.metric("🌧 Yağış", f"{current['precipitation']:.1f} mm")
+            c5.metric("💨 Rüzgar", f"{current['wind_speed_10m']:.1f} km/h")
+            c6.metric("☁️ Durum", durum)
+
+            # ── Tarımsal Uyarılar ──
+            st.divider()
+            st.markdown("### ⚠️ Tarımsal Uyarılar")
+
+            uyarilar = []
+            temps_min = daily["temperature_2m_min"]
+            precip_7  = daily["precipitation_sum"]
+            toplam_yagis = sum(precip_7)
+
+            # Don riski
+            don_gunler = [i for i, t in enumerate(temps_min) if t <= 2]
+            if don_gunler:
+                gunler_str = ", ".join([
+                    (datetime.now() + timedelta(days=d)).strftime("%d %b")
+                    for d in don_gunler
+                ])
+                uyarilar.append(("🥶", "DON RİSKİ", f"Önümüzdeki günlerde don bekleniyor: {gunler_str}. Hassas bitkilerinizi koruyun!", "error"))
+
+            # Kuraklık
+            if toplam_yagis < 5:
+                uyarilar.append(("🏜️", "KURAKLIK UYARISI", "7 gün boyunca yağış beklenmıyor. Sulama yapmanız önerilir.", "warning"))
+
+            # Aşırı yağış
+            asiri_yagis = [i for i, p in enumerate(precip_7) if p > 30]
+            if asiri_yagis:
+                gunler_str = ", ".join([
+                    (datetime.now() + timedelta(days=d)).strftime("%d %b")
+                    for d in asiri_yagis
+                ])
+                uyarilar.append(("🌊", "AŞIRI YAĞIŞ", f"Yoğun yağış bekleniyor: {gunler_str}. Drenaj kontrolü yapın.", "warning"))
+
+            # Yüksek sıcaklık
+            temps_max = daily["temperature_2m_max"]
+            sicak_gunler = [i for i, t in enumerate(temps_max) if t > 35]
+            if sicak_gunler:
+                uyarilar.append(("🌡️", "YÜKSEK SICAKLIK", f"35°C üzeri sıcaklık bekleniyor. Sabah/akşam sulama yapın.", "warning"))
+
+            if not uyarilar:
+                st.success("✅ Bu hafta tarımsal açıdan olumsuz bir hava koşulu beklenmıyor.")
+            else:
+                for emoji, baslik, mesaj, tip in uyarilar:
+                    if tip == "error":
+                        st.error(f"{emoji} **{baslik}:** {mesaj}")
+                    else:
+                        st.warning(f"{emoji} **{baslik}:** {mesaj}")
+
+            # ── 7 Günlük Tahmin ──
+            st.divider()
+            st.markdown("### 📅 7 Günlük Hava Tahmini")
+
+            gunler = []
+            for i in range(7):
+                tarih = (datetime.now() + timedelta(days=i)).strftime("%a %d %b")
+                icon_d, durum_d = weather_code_to_text(daily["weather_code"][i])
+                gunler.append({
+                    "Gün": tarih,
+                    "Durum": f"{icon_d} {durum_d}",
+                    "Max °C": daily["temperature_2m_max"][i],
+                    "Min °C": daily["temperature_2m_min"][i],
+                    "Yağış (mm)": daily["precipitation_sum"][i],
+                    "Rüzgar (km/h)": daily["wind_speed_10m_max"][i],
+                    "ET₀ (mm)": round(daily["et0_fao_evapotranspiration"][i], 1),
+                })
+
+            df_gunler = pd.DataFrame(gunler)
+            st.dataframe(df_gunler.set_index("Gün"), use_container_width=True, height=280)
+
+            # Sıcaklık grafiği
+            col1, col2 = st.columns(2)
+            with col1:
+                fig_temp = px.line(df_gunler, x="Gün",
+                                   y=["Max °C", "Min °C"],
+                                   title="7 Günlük Sıcaklık Tahmini",
+                                   color_discrete_map={"Max °C":"#ef4444","Min °C":"#3b82f6"},
+                                   markers=True)
+                fig_temp.add_hline(y=0, line_dash="dash", line_color="gray", annotation_text="Don sınırı")
+                fig_temp.update_layout(height=300)
+                st.plotly_chart(fig_temp, use_container_width=True)
+
+            with col2:
+                fig_yagis = px.bar(df_gunler, x="Gün", y="Yağış (mm)",
+                                   title="7 Günlük Yağış Tahmini",
+                                   color="Yağış (mm)",
+                                   color_continuous_scale="Blues")
+                fig_yagis.add_hline(y=30, line_dash="dash", line_color="red",
+                                    annotation_text="Aşırı yağış eşiği")
+                fig_yagis.update_layout(height=300)
+                st.plotly_chart(fig_yagis, use_container_width=True)
+
+            # ── Sulama Tavsiyesi ──
+            st.divider()
+            st.markdown("### 💧 Bu Haftaki Sulama Tavsiyesi")
+
+            et0_toplam = sum(daily["et0_fao_evapotranspiration"])
+            net_su = et0_toplam - toplam_yagis
+
+            c1, c2, c3 = st.columns(3)
+            c1.metric("💦 Beklenen Yağış", f"{toplam_yagis:.1f} mm")
+            c2.metric("🌿 Evapotranspirasyon", f"{et0_toplam:.1f} mm")
+            c3.metric("💧 Net Su İhtiyacı", f"{max(0, net_su):.1f} mm",
+                      delta_color="inverse" if net_su > 0 else "normal")
+
+            if net_su <= 0:
+                st.success("✅ Bu hafta yağış yeterli, sulama yapmana gerek yok.")
+            elif net_su < 20:
+                st.info(f"ℹ️ Hafif su açığı var ({net_su:.1f}mm). Hafif sulama yeterli.")
+            elif net_su < 50:
+                st.warning(f"⚠️ Orta su açığı ({net_su:.1f}mm). Haftada 2 kez sulama önerilir.")
+            else:
+                st.error(f"🚨 Ciddi su açığı ({net_su:.1f}mm). Günlük sulama gerekli!")
+
+        except Exception as e:
+            st.error(f"Hava durumu alınamadı: {e}")
+            st.info("İnternet bağlantınızı kontrol edin.")
+
 
 st.divider()
 st.caption("AGRI-2050 | GEE Sentinel-2/Landsat + Open-Meteo ERA5 + TÜİK + DSİ | 2004-2024")
