@@ -94,11 +94,11 @@ c3.metric("Ortalama NDVI", f"{scores['ndvi_ort'].mean():.3f}")
 c4.metric("Kuraklık Riskli İl", int(scores['kuraklık_yil_gercek'].ge(2).sum()))
 st.divider()
 
-tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12 = st.tabs([
     "🗺 Türkiye Haritası", "📊 İl Karşılaştırma", "🌧 Yağış & NDVI",
     "🏆 İl Sıralaması", "🔮 2025-2050 Projeksiyon", "💧 Sulama Planı",
     "🌾 Gerçek Verim", "🍞 Gıda Güvenliği", "🚿 DSİ Sulama", "🌱 Tarım Danışmanı",
-    " Hava Tahmini"
+    " Hava Tahmini","🤖 AI Tarım Asistanı"
 ])
 
 import plotly.express as px
@@ -957,6 +957,252 @@ with tab11:
         except Exception as e:
             st.error(f"Hava durumu alınamadı: {e}")
             st.info("İnternet bağlantınızı kontrol edin.")
+
+
+with tab12:
+    st.subheader("🤖 AI Tarım Asistanı")
+    st.caption("Gerçek veriye dayalı tarım soruları sorun — il, ilçe, ürün, sulama, iklim...")
+
+    from groq import Groq
+
+    base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    @st.cache_data
+    def load_ai_data():
+        ilce_path = os.path.join(base_path, "data/processed/ilce_scores.csv")
+        urun_path = os.path.join(base_path, "data/processed/ilce_urun_onerileri.csv")
+
+        ilce_df = pd.read_csv(ilce_path) if os.path.exists(ilce_path) else None
+        urun_df = pd.read_csv(urun_path) if os.path.exists(urun_path) else None
+
+        return ilce_df, urun_df
+
+    ilce_df_ai, urun_df_ai = load_ai_data()
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        il_ai = st.selectbox(
+            "🏙️ İl seçin",
+            sorted(ilce_df_ai['il'].unique()),
+            key="ai_il"
+        )
+
+    with col2:
+        ilce_listesi_ai = sorted(
+            ilce_df_ai[ilce_df_ai['il'] == il_ai]['ilce'].unique()
+        )
+
+        ilce_ai = st.selectbox(
+            "📍 İlçe seçin",
+            ilce_listesi_ai,
+            key="ai_ilce"
+        )
+
+    ilce_row_ai = ilce_df_ai[
+        (ilce_df_ai['il'] == il_ai) &
+        (ilce_df_ai['ilce'] == ilce_ai)
+    ]
+
+    urun_row_ai = (
+        urun_df_ai[
+            (urun_df_ai['il'] == il_ai) &
+            (urun_df_ai['ilce'] == ilce_ai)
+        ]
+        if urun_df_ai is not None else None
+    )
+
+    if len(ilce_row_ai) > 0:
+
+        r = ilce_row_ai.iloc[0]
+
+        yagis = r.get('yagis_ort', 0)
+        ndvi = r.get('ndvi_ort', 0)
+        skor = r.get('tarim_skoru', 0)
+
+        urun_ozet = ""
+
+        if urun_row_ai is not None and len(urun_row_ai) > 0:
+
+            for _, u in urun_row_ai.head(3).iterrows():
+
+                urun_ozet += (
+                    f"- {u['urun']}: "
+                    f"%{u['uygunluk_pct']:.0f} uygun, "
+                    f"{u['sulama_yontem']}\n"
+                )
+
+        context = f"""
+Sen AGRI-2050 Türkiye tarım danışmanısın.
+Kısa ve pratik cevap ver, Türkçe yaz.
+
+{il_ai}/{ilce_ai} verileri:
+
+- Yıllık yağış: {yagis:.0f}mm
+- NDVI: {ndvi:.3f}
+- Tarım skoru: {skor:.1f}/10
+- İklim:
+{"Kurak" if yagis < 300 else
+"Yarı kurak" if yagis < 500 else
+"Yeterli" if yagis < 900 else
+"Yağışlı"}
+
+En uygun ürünler:
+{urun_ozet if urun_ozet else "Veri yok"}
+
+Kurallar:
+- Veriye dayan
+- Kısa ol
+- Her cevap sonunda 1 pratik ipucu ver
+"""
+
+    else:
+
+        context = (
+            f"Türkiye tarım danışmanısın. "
+            f"{il_ai}/{ilce_ai} için genel bilgiyle cevap ver. "
+            f"Kısa ve pratik ol."
+        )
+
+    if "ai_messages" not in st.session_state:
+        st.session_state.ai_messages = []
+
+    st.markdown("**💡 Örnek sorular:**")
+
+    ornek_sorular = [
+        f"{ilce_ai}'da ne ekeyim?",
+        "En iyi sulama yöntemi?",
+        "2050'de iklim nasıl olur?",
+        "Domates yetişir mi?",
+        "Tarım skoru nedir?"
+    ]
+
+    cols_o = st.columns(5)
+
+    for i, soru in enumerate(ornek_sorular):
+
+        if cols_o[i].button(
+            soru,
+            key=f"ornek_{i}",
+            use_container_width=True
+        ):
+
+            st.session_state.ai_messages.append({
+                "role": "user",
+                "content": soru
+            })
+
+            st.rerun()
+
+    st.divider()
+
+    for msg in st.session_state.ai_messages:
+
+        with st.chat_message(msg["role"]):
+            st.markdown(msg["content"])
+
+    if prompt := st.chat_input(
+        f"{ilce_ai} hakkında tarım sorusu sorun..."
+    ):
+
+        st.session_state.ai_messages.append({
+            "role": "user",
+            "content": prompt
+        })
+
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        with st.chat_message("assistant"):
+
+            with st.spinner("Analiz ediliyor..."):
+
+                try:
+
+                    client_ai = Groq(
+                        api_key=st.secrets["GROQ_API_KEY"]
+                    )
+
+                    gecmis = ""
+
+                    for msg in st.session_state.ai_messages[:-1][-4:]:
+
+                        rol = (
+                            "Kullanıcı"
+                            if msg["role"] == "user"
+                            else "Asistan"
+                        )
+
+                        gecmis += (
+                            f"{rol}: {msg['content']}\n"
+                        )
+
+                    full_prompt = f"""
+{context}
+
+{gecmis}
+
+Kullanıcı: {prompt}
+
+Asistan:
+"""
+
+                    completion = (
+                        client_ai.chat.completions.create(
+                            model="llama-3.1-8b-instant",
+
+                            messages=[
+                                {
+                                    "role": "system",
+                                    "content": context
+                                },
+                                {
+                                    "role": "user",
+                                    "content": full_prompt
+                                }
+                            ],
+
+                            temperature=0.7,
+                            max_tokens=700
+                        )
+                    )
+
+                    cevap = (
+                        completion
+                        .choices[0]
+                        .message
+                        .content
+                    )
+
+                    st.markdown(cevap)
+
+                    st.session_state.ai_messages.append({
+                        "role": "assistant",
+                        "content": cevap
+                    })
+
+                except Exception as e:
+
+                    if "429" in str(e):
+
+                        st.warning(
+                            "⏳ API limiti doldu, biraz bekleyin."
+                        )
+
+                    else:
+
+                        st.error(f"API hatası: {e}")
+
+    if st.session_state.ai_messages:
+
+        if st.button(
+            "🗑️ Sohbeti Temizle",
+            key="ai_clear"
+        ):
+
+            st.session_state.ai_messages = []
+
+            st.rerun()
 
 
 st.divider()
